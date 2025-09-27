@@ -1,8 +1,14 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "sync": {
+    "applyChanges": true
+  },
   "defaultBase": "master",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -52,7 +58,9 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/personal-finance-app-be-e2e/**/*"]
+      "exclude": [
+        "apps/personal-finance-app-be-e2e/**/*"
+      ]
     },
     {
       "plugin": "@nx/playwright/plugin",
@@ -63,12 +71,19 @@
   ],
   "targetDefaults": {
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     },
     "@angular/build:application": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     }
   },
   "generators": {
